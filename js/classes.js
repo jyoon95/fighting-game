@@ -80,6 +80,7 @@ class Fighter extends Sprite {
     }
     this.color = color
     this.isAttacking
+    this.isSpecial
     this.health = 100
     this.framesCurrent = 0
     this.framesElapsed = 0
@@ -121,6 +122,11 @@ class Fighter extends Sprite {
         this.isAttacking = true
     }
 
+    special() {
+        this.switchSprite('attack2')
+        this.isSpecial = true
+    }
+
     takeHit() {
         this.health -= 20
 
@@ -140,6 +146,11 @@ class Fighter extends Sprite {
         if (this.image === this.sprites.attack1.image && 
             this.framesCurrent < this.sprites.attack1.framesMax - 1
             ) 
+            return
+        
+        if (this.image === this.sprites.attack2.image &&
+            this.framesCurrent < this.sprites.attack2.framesMax - 1
+            )
             return
         
         //override when fighter gets hit
@@ -181,6 +192,13 @@ class Fighter extends Sprite {
                 if (this.image !== this.sprites.attack1.image) {
                     this.image = this.sprites.attack1.image
                     this.framesMax = this.sprites.attack1.framesMax
+                    this.framesCurrent = 0
+                }
+                break
+            case 'attack2':
+                if (this.image !== this.sprites.attack2.image) {
+                    this.image = this.sprites.attack2.image
+                    this.framesMax = this.sprites.attack2.framesMax
                     this.framesCurrent = 0
                 }
                 break

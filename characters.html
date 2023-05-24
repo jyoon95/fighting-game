@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function Redirect() {
+            window.location = 'file:///C:/Users/jyoon/fighting_game/index.html'
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Press Start 2P', cursive;
+        }
+    </style>
+    <link rel="stylesheet" href="front.css">
+    <title>How to Play</title>
+</head>
+
+<body>
+    <div id="home">
+        <div class="container">
+            <h1>Instructions</h1>
+        </div>
+        <div class="instructions1">
+            <div class="layer">
+                <p id="player1">Player 1 controls w jump, a left, d right, space attack</p>
+            </div>
+            <div class="instructions2">
+                <div class="layer">
+                    <p id="player2">Player 2 controls up jump, left left, right right, down attack</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="button" value="Start" onclick="Redirect();" />
+
+</body>
+
+</html>

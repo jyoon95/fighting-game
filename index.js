@@ -67,6 +67,10 @@ const player = new Fighter({
             imageSrc: './img/samuraiMack/Attack1.png',
             framesMax: 6
         },
+        attack2: {
+            imageSrc: './img/samuraiMack/Attack2.png',
+            framesMax: 6
+        },
         takeHit: {
             imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
             framesMax: 4
@@ -128,6 +132,10 @@ const enemy = new Fighter({
             imageSrc: './img/kenji/Attack1.png',
             framesMax: 4
         },
+        attack2: {
+            imageSrc: './img/kenji/Attack2.png',
+            framesMax: 4
+        },
         takeHit: {
             imageSrc: './img/kenji/Take hit.png',
             framesMax: 3
@@ -160,6 +168,9 @@ const keys = {
         pressed: false
     },
     ArrowLeft: {
+        pressed: false
+    },
+    q: {
         pressed: false
     }
 
@@ -224,10 +235,13 @@ function animate() {
             rectangle2: enemy
         }) &&
         player.isAttacking && 
-        player.framesCurrent === 4
+        player.framesCurrent === 4,
+        player.isSpecial &&
+        player.framesCurrent === 6
     ) {
         enemy.takeHit()
         player.isAttacking = false
+        player.isSpecial = false
         
         gsap.to('#enemyHealth', {
             width: enemy.health + '%'
@@ -236,6 +250,7 @@ function animate() {
 
     if (player.isAttacking && player.framesCurrent === 4) {
         player.isAttacking = false
+        player.isSpecial = false
     }
 
     //if player gets hit
@@ -246,7 +261,9 @@ function animate() {
             rectangle2: player
         }) &&
         enemy.isAttacking && 
-        enemy.framesCurrent === 2
+        enemy.framesCurrent === 2,
+        enemy.isSpecial &&
+        enemy.framesCurrent === 4
     ) {
         player.takeHit()
         enemy.isAttacking = false
@@ -282,7 +299,10 @@ window.addEventListener('keydown', (event) => {
             break
         case ' ':
             player.attack()
-            break   
+            break
+        case 'q':
+            player.special()
+            break
         }
     }
     if (!enemy.dead) {
@@ -300,6 +320,9 @@ window.addEventListener('keydown', (event) => {
             break
         case 'ArrowDown':
             enemy.attack()
+            break
+        case 'm':
+            enemy.special()
             break
         }
     }

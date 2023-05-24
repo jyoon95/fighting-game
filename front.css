@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(img/background.png);
+}
+
+body {
+    background-color: aliceblue;
+    color: #fff;
+}
+
+#instructions {
+    margin: 0;
+    padding: 50px;
+}
+
+.container {
+    padding: 10px 10%;
+}
+
+.button {
+    padding: 50px;
+}
+
+.instructions1 {
+    padding-top: 50px;
+}
+
+.instructions2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+input[type=button] {
+    margin-left: 50px;
+    padding: 12px 20px;
+    width: 50%;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background: rgba(158, 158, 246, 0.588);
+}
